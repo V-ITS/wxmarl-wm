@@ -1,0 +1,47 @@
+[project]
+name = "wxmarl"
+version = "0.1.0"
+description = "WxMARL: multi-aircraft conflict resolution in evolving weather-affected airspace, and world-model planning experiments on it"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "torch==2.14.1",
+    "numpy==2.4.6",
+    "PyYAML==6.0.3",
+    "matplotlib==3.11.2",
+    "pillow==12.3.0",
+    "imageio-ffmpeg==0.6.0",  # bundles an ffmpeg binary for MP4 output
+    "wandb==0.30.0",
+    # EPyMARL runtime (third_party/epymarl, see scripts/setup_epymarl.sh)
+    "sacred==0.8.7",
+    "setuptools<81",  # sacred 0.8.7 imports pkg_resources
+    "gymnasium==1.4.0",  # imported by EPyMARL's envs package; unused by wxmarl
+    "cloudpickle==3.1.2",
+    "scipy==1.17.1",  # paired tests (wm/stats.py)
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.1.1",
+    "ruff==0.17.0",
+]
+
+[tool.uv]
+package = false  # flat script layout, run from the repo root
+
+# The CUDA 12.6 build: the default CUDA 13 build has no code for V100s (sm_70).
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
+
+[tool.ruff]
+line-length = 120
+extend-exclude = ["third_party"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["wm/tests"]

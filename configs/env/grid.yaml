@@ -1,0 +1,3 @@
+# Default scenario (five aircraft) with the image observation for the CNN agent (agent=wx_cnn).
+obs:
+  mode: grid

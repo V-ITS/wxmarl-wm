@@ -1,0 +1,3 @@
+# Three aircraft per episode.
+domain:
+  n_agents_max: 3

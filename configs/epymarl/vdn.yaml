@@ -1,0 +1,5 @@
+# Team-sum reward: value decomposition needs a common reward.
+common_reward: True
+reward_scalarisation: "sum"
+# RNN agents: cell motion is not observed. EPyMARL default is False.
+use_rnn: True

@@ -1,0 +1,3 @@
+# One weather family in every episode (the default draws one of the three per episode).
+weather:
+  family: clustered

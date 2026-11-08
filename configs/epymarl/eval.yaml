@@ -1,0 +1,9 @@
+# Evaluation of a checkpoint: no training, one env in the main process, rendering on.
+evaluate: True
+runner: "episode"
+batch_size_run: 1
+save_model: False
+test_nepisode: 20
+env_args:
+  render: True
+  eval_scenarios: True # episode k uses eval_seeds[k] from the env config

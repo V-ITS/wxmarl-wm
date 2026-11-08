@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+.claude/
+CLAUDE.md
+
+# Fetched or produced by running the code
+third_party/
+results/
+wandb/
+.DS_Store
